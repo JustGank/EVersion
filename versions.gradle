@@ -1,0 +1,448 @@
+ext.deps = [:]
+
+/** sdk版本 */
+def build_version = [:]
+build_version.min_sdk = 21
+build_version.target_sdk = 28
+ext.build_version = build_version
+
+/** app版本 */
+def app_version = [:]
+app_version.version_code = 1
+app_version.version_name = "1.0.0"
+ext.app_version = app_version
+
+
+/** 依赖版本 */
+def versions = [:]
+versions.androidgradleplugin = "3.6.3"
+versions.build_tool_support = "28.0.0"
+
+/**  kotlin版本 */
+ext.kotlin_version = '1.3.72'
+
+
+/**
+ * 原生AndroidX依赖
+ * 原生依赖不追求最新最高版本，此处的版本使用最新的稳定版本即可。
+ * 查看最新的稳定版本请转至：
+ * https://developer.android.google.cn/jetpack/androidx/versions/stable-channel
+ * */
+//公开元数据，以帮助工具开发者和其他开发者了解您的应用代码。
+versions.XAnnotation = "1.1.0"
+//要添加 Appcompat 的依赖项，您必须将 Google Maven 代码库添加到项目中。
+versions.XAppcompat = "1.1.0"
+//异步扩充布局以避免界面出现卡顿。
+versions.XAsynclayoutinflater = "1.0.0"
+//用圆角和阴影实现 Material Design 卡片图案。
+versions.XCardView = "1.0.0"
+//约束布局 灵活地定位和调整窗口小部件的大小
+versions.XConstraintLayout = "1.1.3"
+//实现 Material Design 抽屉式导航栏微件。
+versions.XDrawerlayout = "1.0.0"
+//生命周期感知型组件可执行操作来响应另一个组件（如 Activity 和 Fragment）的生命周期状态的变化。
+versions.XLifecycle = "2.2.0"
+//无需与设备存储空间交互，也不需要管理界面，便能构建交互式设置画面。
+versions.XPreference = "1.1.1"
+//Recyclerview 在您的界面中显示大量数据，同时最大限度减少内存用量。
+versions.XRecyclerview = "1.1.0"
+//加密工具类
+versions.XSecurity = "1.0.0-alpha02"
+//一个水平的多层的布局控件，左侧或者第一个子视图是它的导航视图，其他的是内容视图。
+versions.XSlidingpanelayout = "1.0.0"
+//实现下拉刷新的界面模式。
+versions.XSwiperefreshlayout = "1.0.0"
+//以可滑动的格式显示视图或 Fragment。
+versions.XViewPager2 = "1.0.0"
+//本地广播
+versions.XLocalbroadcastmanager="1.0.0"
+//material design
+versions.material = "1.1.0"
+
+/**
+ * 音视频开发
+ * */
+//使用 Android 设备上可用的编解码器，以 HEIF 格式对图像或图像集进行编码。
+versions.XHeifwriter = "1.0.0"
+//与其他应用共享媒体内容和控件。
+versions.XMedia2 = "1.0.3"
+//利用通用界面实现在远程接收端设备上显示和播放媒体内容。
+versions.XMediarouter = "1.1.0"
+//ExoPlayer is an application level media player for Android.
+versions.Exoplayer = "2.11.7"
+
+/**
+ * 第三方应用
+ * */
+/**
+ * 功能：基于Rxjava的授权第三方，支持链式回调 已支持Rxjava3
+ * 版权：Apache-2.0 license
+ * 地址：https://github.com/tbruyelle/RxPermissions
+ * */
+versions.rxpermissions = "0.12"
+/**
+ * 功能：图片选择
+ * 版权：MIT License
+ * 地址：https://github.com/lovetuzitong/MultiImageSelector
+ * */
+versions.MultiImageSelector = "1.2"
+/**
+ * 功能：EventBus is a publish/subscribe event bus for Android and Java.
+ * 版权：Apache-2.0 license
+ * 地址：https://github.com/greenrobot/EventBus
+ * */
+versions.eventbus = "3.2.0"
+/**
+ * 功能：RxJava is a Java VM implementation of Reactive Extensions: a library for composing asynchronous and event-based programs by using observable sequences.
+ * 版权：Apache-2.0 license
+ * 地址：https://github.com/ReactiveX/RxJava
+ * */
+versions.rxjava3 = "3.0.4"
+versions.rxandroid = "3.0.0"
+/**
+ * 功能：This library allows one to automatically complete sequences based on a second lifecycle stream.
+ * 版权：Apache-2.0 license
+ * 地址：https://github.com/trello/RxLifecycle
+ * */
+versions.rxlifecycle = "4.0.0"
+versions.rxlifecycle_android = "4.0.0"
+versions.rxlifecycle_components = "4.0.0"
+/**
+ * 功能：View注入框架 需要java8 library中记得加插件
+ * 版权：Apache-2.0 license
+ * 地址：https://github.com/JakeWharton/butterknife
+ * */
+versions.butterknife = "10.2.1"
+/**
+ * 功能：今日头条屏幕适配方案终极版，一个极低成本的 Android 屏幕适配方案
+ * 版权：Apache-2.0 license
+ * 地址：https://github.com/JessYanCoding/AndroidAutoSize
+ * */
+versions.autosize = "1.2.1"
+/**
+ * 功能：Gson is a Java library that can be used to convert Java Objects into their JSON representation.
+ * 版权：Apache-2.0 license
+ * 地址：https://github.com/google/gson
+ * */
+versions.gson = "2.8.6"
+/**
+ * 功能：MQ
+ * 版权：Apache-2.0 license
+ * 地址：http://www.eclipse.org/paho/clients/android/
+ * */
+versions.pahomq = "1.1.1"
+versions.pinyin4j = "2.5.0"
+/**
+ * 功能：RxJava binding APIs for Android UI widgets from the platform and support libraries.
+ * 版权：Apache-2.0 license
+ * 地址：https://github.com/JakeWharton/RxBinding
+ * */
+versions.rxbinding = "4.0.0"
+/**
+ * 功能：跨端的动画解决方案 动画效果好
+ * 版权：Apache-2.0 license
+ * 地址：https://github.com/airbnb/lottie-android
+ * */
+versions.lottie = "3.4.1"
+/**
+ * 功能：对现有android动画库进行了封装 使使用动画更简单 方便 高效
+ * 版权：Apache-2.0 license
+ * 地址：https://github.com/JakeWharton/NineOldAndroids
+ * */
+versions.nineoldandroids = "2.4.0"
+/**
+ * 功能：图片压缩
+ * 版权：Apache-2.0 license
+ * 地址：https://github.com/Curzibn/Luban
+ * */
+versions.Luban = "1.1.8"
+/**
+ * 功能：Netty 是一个基于NIO的客户、服务器端编程框架,Netty提供异步的、事件驱动的网络应用程序框架和工具，用以快速开发高性能、高可靠性的网络服务器和客户端程序；
+ * 版权：Apache-2.0 license
+ * 地址：https://github.com/Curzibn/Luban
+ * */
+versions.netty = "4.1.49.Final"
+/**
+ * 功能：Android智能下拉刷新框架-SmartRefreshLayout
+ * 版权：Apache-2.0 license
+ * 地址：https://github.com/scwang90/SmartRefreshLayout
+ * */
+versions.SmartRefreshLayout = "2.0.1"
+/**
+ * 功能：安卓任意界面悬浮窗  <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+ * 版权：Apache-2.0 license
+ * 地址：https://github.com/yhaolpz/FloatWindow
+ * */
+versions.FloatWindow = "1.0.9"
+/**
+ * 功能：xCrash 能为安卓 app 提供捕获 java 崩溃，native 崩溃和 ANR 的能力。不需要 root 权限或任何系统权限。
+ * 版权：MIT
+ * 地址：https://github.com/iqiyi/xCrash/blob/master/README.zh-CN.md
+ * */
+versions.xcrash = "2.4.9"
+/**
+ * 功能：Glide 图片加载库，4.7.0 版本为最后一个支持非AndroidX的版本 最新版本为4.11.0
+ * 版权：Part MIT and Apache 2.0.
+ * 地址：https://github.com/iqiyi/xCrash/blob/master/README.zh-CN.md
+ * */
+versions.glide = "4.11.0"
+/**
+ * 功能：Simple, pretty and powerful logger for android
+ * 版权：Part MIT and Apache 2.0.
+ * 地址：https://github.com/orhanobut/logger
+ * */
+versions.logger = "2.2.0"
+
+
+/**
+ * 自研
+ * */
+/**
+ * 名称：AppJoint
+ * 功能：组件化框架 更快 更安全的 组件化框架
+ * 地址：http://10.110.38.20/ZhaoTongHui/appjointplugin
+ * */
+versions.appjoint = "1.7"
+versions.dreamjoint = "0.0.5"
+/**
+ * 名称：auligelite
+ * 功能：基于SQlite的自研数据库 支持注解以及SQL语句控制数据库
+ * 地址：http://10.110.38.20/componentfunction/auligelite
+ * */
+versions.auligelite = "1.0.1"
+/**
+ * 名称：snoozles
+ * 功能：独立的一套日志系统 和 android原生日志无关
+ * 地址：http://10.110.38.20/componentfunction/xlogsnoozles
+ * */
+versions.snoozles = "1.0.1"
+/**
+ * 名称：RxResult
+ * 功能：是一款基于RxJava的编程范式
+ * 地址：http://10.110.38.20/componentfunction/RXResultX
+ * */
+versions.RxResultX = "1.0.0"
+/**
+ * 名称：EMp3Record
+ * 功能：快速实现MP3录制和播放的音频库。由于Android原生AudioRecord的录制结果是PCM文件，在其他端不通用，所以需要将录制好的PCM转换成Mp3通用格式
+ * 地址：http://10.110.38.20/componentfunction/EMp3Record
+ * */
+versions.emp3recorder = "1.0.0"
+/**
+ * 名称：EMedia
+ * 功能：EMedia是一个基于Android系统的媒体文件选择帮助类。
+ * 地址：http://10.110.38.20/componentfunction/emedia
+ * */
+versions.emedia = "1.0.1"
+/**
+ * 名称：EIMUI
+ * 功能：一个简单，美观，易维护，易拓展的IMUI解决方案
+ * 地址：http://10.110.38.20/componentfunction/EIMUI
+ * */
+versions.eimui = "1.0.1"
+
+
+/**
+ * 自研网络库 网络库基于 retrofit 包含了较多的 关于网络方面的三方
+ * 所以将自研网络库 和 网络相关的库一起列出 需要 RXJAVA3
+ * 名称：CUAHttp
+ * 功能：网络请求库集成文档
+ * 地址：http://10.110.38.20/componentfunction/cuahttp
+ * */
+versions.cua = "1.1.12"
+/**
+ * 功能：基于OKHTTP 进行注解式封装的网络库 适合Resetfull类型的网络请求 此缺陷由retrofiturlmanager补充
+ * 版权：Apache-2.0 license
+ * 地址：https://github.com/square/retrofit
+ * */
+versions.retrofit = "2.9.0"
+/**
+ * 功能：OKHTTP
+ * 版权：Apache-2.0 license
+ * 地址：https://github.com/square/okhttp
+ * */
+versions.okhttp3 = "4.7.2"
+/**
+ * 功能：Let Retrofit support multiple baseUrl and can be change the baseUrl at runtime.
+ * 版权：Apache-2.0 license
+ * 地址：https://github.com/JessYanCoding/RetrofitUrlManager/blob/master/README-zh.md
+ * */
+versions.retrofiturlmanager = "1.4.0"
+
+
+def deps = [:]
+//gradle插件依赖
+deps.androidgradleplugin = "com.android.tools.build:gradle:$versions.androidgradleplugin"
+//deps.objectbox_gradle_plugin = "io.objectbox:objectbox-gradle-plugin:$versions.objectbox"
+
+
+//支持库依赖
+deps.xannotation = "androidx.annotation:annotation:$versions.XAnnotation"
+deps.xappcompat = "androidx.appcompat:appcompat:$versions.XAppcompat"
+deps.xasynclayoutinflater = "androidx.asynclayoutinflater:asynclayoutinflater:$versions.XAsynclayoutinflater"
+deps.xcardView = "androidx.cardview:cardview:$versions.XCardView"
+deps.xconstraintlayout = "androidx.constraintlayout:constraintlayout:$versions.XConstraintLayout"
+deps.xdrawerlayout = "androidx.drawerlayout:drawerlayout:$versions.XDrawerlayout"
+deps.lifecycle_viewmode = "androidx.lifecycle:lifecycle-viewmodel:$versions.XLifecycle"
+deps.lifecycle_livedata = "androidx.lifecycle:lifecycle-livedata:$versions.XLifecycle"
+deps.xpreference = "androidx.preference:preference:$versions.XPreference"
+deps.xrecyclerview = "androidx.recyclerview:recyclerview:$versions.XRecyclerview"
+deps.xsecurity = "androidx.security:security-crypto:$versions.XSecurity"
+deps.xslidingpanelayout = "androidx.slidingpanelayout:slidingpanelayout:$versions.XSlidingpanelayout"
+deps.xswiperefresh = "androidx.swiperefreshlayout:swiperefreshlayout:$versions.XSwiperefreshlayout"
+deps.xviewPager2 = "androidx.viewpager2:viewpager2:$versions.XViewPager2"
+deps.XLocalbroadcastmanager ="androidx.localbroadcastmanager:localbroadcastmanager:$versions.XLocalbroadcastmanager"
+deps.xmaterial = "com.google.android.material:material:$versions.material"
+
+/**
+ * 音视频开发
+ * */
+deps.xheifwriter = "androidx.heifwriter:heifwriter:$versions.XHeifwriter"
+deps.xmedia2_session = "androidx.media2:media2-session:$versions.XMedia2"
+deps.xmedia2_widget = "androidx.media2:media2-widget:$versions.XMedia2"
+deps.xmedia2_player = "androidx.media2:media2-player:$versions.XMedia2"
+deps.xmediarouter = "androidx.mediarouter:mediarouter:$versions.XMediarouter"
+deps.exoplayer = "com.google.android.exoplayer:exoplayer:$versions.Exoplayer"
+
+/**
+ * 第三方应用
+ * */
+deps.rxpermissions = "com.github.tbruyelle:rxpermissions:$versions.rxpermissions"
+
+deps.MultiImageSelector = "com.github.lovetuzitong:MultiImageSelector:$versions.MultiImageSelector"
+
+deps.eventbus = "org.greenrobot:eventbus:$versions.eventbus"
+
+deps.rxjava3 = "io.reactivex.rxjava3:rxjava:$versions.rxjava3"
+deps.rxandroid = "io.reactivex.rxjava3:rxandroid:$versions.rxandroid"
+
+deps.rxlifecycle = "com.trello.rxlifecycle4:rxlifecycle:$versions.rxlifecycle"
+deps.rxlifecycle_android = "com.trello.rxlifecycle4:rxlifecycle-android:$versions.rxlifecycle_android"
+deps.rxlifecycle_components = "com.trello.rxlifecycle4:rxlifecycle-components:$versions.rxlifecycle_components"
+
+deps.butterknife = "com.jakewharton:butterknife:$versions.butterknife"
+deps.butterknife_compiler = "com.jakewharton:butterknife-compiler:$versions.butterknife"
+
+deps.autosize = "me.jessyan:autosize:$versions.autosize"
+
+deps.gson = "com.google.code.gson:gson:$versions.gson"
+
+//paho mqtt
+deps.pahomqtt = "org.eclipse.paho:org.eclipse.paho.client.mqttv3:$versions.pahomq"
+deps.pahoservice = "org.eclipse.paho:org.eclipse.paho.android.service:$versions.pahomq"
+
+deps.pinyin4j = "com.belerweb:pinyin4j:$versions.pinyin4j"
+
+deps.rxbinding = "com.jakewharton.rxbinding4:$versions.rxbinding"
+
+deps.lottie = "com.airbnb.android:lottie:$versions.lottie"
+
+deps.nineoldandroids = "com.nineoldandroids:library:$versions.nineoldandroids"
+
+deps.Luban = "top.zibin:Luban:$versions.Luban"
+
+deps.netty = "io.netty:netty-all:$versions.netty"
+
+deps.smartrefreshLayout = "com.scwang.smart:refresh-layout-kernel:$versions.SmartRefreshLayout"
+
+deps.floatwindow = "com.github.yhaolpz:FloatWindow:$versions.FloatWindow"
+
+deps.xcrash = "com.iqiyi.xcrash:xcrash-android-lib:$versions.xcrash"
+
+deps.glide = "com.github.bumptech.glide:glide:$versions.glide"
+
+deps.logger = "com.orhanobut:logger:$versions.logger"
+/**
+ * 自研
+ * */
+//dreamjoint
+deps.app_joint_core = "io.github.prototypez:app-joint-core:$versions.appjoint"
+deps.dream_joint = "com.dream.appjoint:plugin:$versions.dreamjoint"
+deps.auligelite = "com.ylei.aulige:auligelite:$versions.auligelite"
+deps.snoozles = "com.lmy.snoozles:log:$versions.snoozles"
+deps.RxResultX = "com.xjl.RxResultX:RxResultX:$versions.RxResultX"
+deps.emp3recorder = "com.xjl.emp3recorder:EMp3Record:$versions.emp3recorder"
+deps.emedia = "com.xjl.emedia:EMedia:$versions.emedia"
+deps.eimui = "com.xjl.eimui:$versions.eimui"
+
+/**
+ * 网络库
+ * */
+deps.cua = "com.zd.cua:cua:$versions.cua"
+deps.retrofit = "com.squareup.retrofit2:retrofit:$versions.retrofit"
+deps.adapter_rxjava2 = "com.squareup.retrofit2:adapter-rxjava3:$versions.retrofit"
+deps.converter_simplexml = "com.squareup.retrofit2:converter-simplexml:$versions.retrofit"
+deps.converter_gson = "com.squareup.retrofit2:converter-gson:$versions.retrofit"
+deps.okhttp3 = "com.squareup.okhttp3:okhttp:$versions.okhttp3"
+deps.retrofiturlmanager = "me.jessyan:retrofit-url-manager:$versions.retrofiturlmanager"
+
+ext.deps = deps
+
+/**
+ * 一行 声明 Base Module所有 依赖
+ * 直接复制 ： addBaseDeps(project)
+ * 到Base 中 替换掉所有 dependencies｛｝即可（指dependencies 的内容和自身）
+ * */
+def addBaseDeps(Project project) {
+    project.dependencies {
+        implementation fileTree(include: ['*.jar'], dir: 'libs')
+        api deps.app_joint_core
+        api deps.dream_joint
+        api deps.xappcompat
+        api deps.xrecyclerview
+        api deps.xswiperefresh
+        api deps.xconstraintlayout
+        api deps.xmaterial
+        api deps.eventbus
+        api deps.rxpermissions
+        api deps.rxjava3
+        api deps.rxandroid
+        api deps.rxlifecycle
+        api deps.rxlifecycle_android
+        api deps.rxlifecycle_components
+        api deps.gson
+        api deps.auligelite
+        api deps.snoozles
+        api deps.xannotation
+        api deps.pahoservice
+        api deps.pahomqtt
+        api deps.autosize
+        api deps.MultiImageSelector
+        api deps.xcrash
+        api deps.glide
+        api deps.XLocalbroadcastmanager
+
+        api deps.cua
+        api deps.retrofit
+        api deps.adapter_rxjava2
+        api deps.converter_simplexml
+        api deps.converter_gson
+        api deps.okhttp3
+        api deps.retrofiturlmanager
+    }
+}
+
+ext.addBaseDeps = this.&addBaseDeps
+
+/** 配置数据仓库地址 */
+def addRepos(RepositoryHandler handler) {
+
+    //Add the JitPack repository
+    handler.maven { url 'https://maven.aliyun.com/repository/public/' }
+    handler.maven { url 'https://maven.aliyun.com/repository/jcenter/' }
+    handler.maven { url 'https://maven.aliyun.com/repository/google/' }
+    handler.maven { url 'https://maven.aliyun.com/repository/gradle-plugin/' }
+    handler.maven { url "http://172.16.0.201:8082/artifactory/lib_virtual_public/" }
+    handler.maven { url "https://jitpack.io" }
+    handler.maven { url "https://maven.google.com" }
+
+    handler.mavenLocal()
+    handler.google()
+    handler.jcenter()
+    handler.mavenCentral()
+    handler.flatDir {
+        dirs 'libs', '../libpuc/libs'
+    }
+}
+
+ext.addRepos = this.&addRepos
